@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static "css/numAyuda.css" %}">
+
+<section class="help-section">
+    <div class="help-header">
+        <h1>Números de Ayuda</h1>
+        <p>Si tú o alguien que conoces está pasando por un momento difícil, no dudes en comunicarte con estos números de ayuda. Siempre hay alguien dispuesto a escuchar.</p>
+    </div>
+
+    <div class="help-container">
+        <div class="help-card">
+            <h2>Línea 100 - Violencia familiar</h2>
+            <p>Teléfono: <a href="tel:100">100</a></p>
+            <p>Disponible las 24 horas para personas que sufren de violencia familiar o agresiones. </p>
+        </div>
+
+        <div class="help-card">
+            <h2>SAMU - Servicio de Atención Móvil de Urgencia</h2>
+            <p>Teléfono: <a href="tel:106">106</a></p>
+            <p>Atención de emergencias médicas en cualquier lugar del país, las 24 horas del día.</p>
+        </div>
+
+        <div class="help-card">
+            <h2>Línea 113 - Ministerio de Salud</h2>
+            <p>Teléfono: <a href="tel:113">113</a></p>
+            <p>Atención de emergencias de salud mental, orientación médica, y asistencia en caso de crisis.</p>
+        </div>
+
+        <div class="help-card">
+            <h2>Hospital Nacional Víctor Larco Herrera</h2>
+            <p>Teléfono: <a href="tel:+5112048000">+51 1 204 8000</a></p>
+            <p>Atención para pacientes con trastornos mentales y emocionales.</p>
+        </div>
+
+        <div class="help-card">
+            <h2>Teléfono contra el suicidio</h2>
+            <p>Teléfono: <a href="tel:+511080000071">0800-000-71</a></p>
+            <p>Línea gratuita para ayudar a personas que están pensando en hacerse daño o que necesitan apoyo emocional urgente.</p>
+        </div>
+
+        <div class="help-card">
+            <h2>Centro de Emergencia Mujer</h2>
+            <p>Teléfono: <a href="tel:080001234">0800-12345</a></p>
+            <p>Atención especializada para mujeres víctimas de violencia, las 24 horas del día.</p>
+        </div>
+
+    </div>
+    <!-- Imagen en la parte inferior -->
+    <div class="help-image">
+        <img src="{% static 'images/numeroAyudaGato.png' %}" alt="Ayuda" />
+    </div>
+</section>
+
+
+{% endblock  %}

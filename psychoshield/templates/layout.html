@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Navegación</title>
+    <link rel="stylesheet" href="{% static "css/layout.css" %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <title> {% block title %}{% endblock  %}</title>
+</head>
+<body>
+    <!-- Header con logo y contacto -->
+    <header>
+        <div class="logo">
+            <img src="{% static "images/logo1.png" %}" alt="Logo de la Aplicación">
+        </div>
+        <div class="contact-info">
+            <span>Número de contacto: 123-456-789</span>
+            <span>Instagram: @nombreIG</span>
+        </div>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <ul>
+            <li><a href="{% url "index" %}" class="active">Inicio</a></li>
+            <li><a href="{% url "information" %}">Información</a></li>
+            <li><a href="{% url "actividades" %}">Actividades</a></li>
+            <li><a href="{% url "numerosAyuda" %}">Números de Ayuda</a></li>
+        </ul>
+    </nav>
+
+    {% block content %}
+    
+    {% endblock  %}
+
+    
+</body>
+</html>

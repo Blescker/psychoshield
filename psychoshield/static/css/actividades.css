@@ -1,0 +1,220 @@
+.hero {
+    width: 100%;
+    height: 60vh;
+    /* Ocupa solo un 60% de la altura del viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/actividadesPortada.png');
+    /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image .image {
+    width: 350px;
+    /* Imagen del muñeco más grande en pantallas grandes */
+    height: auto;
+}
+
+.hero-text {
+    flex: 2;
+    text-align: right;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 0;
+}
+
+/* Responsividad */
+@media (max-width: 1200px) {
+    .hero {
+        height: 50vh;
+        /* Menor altura en pantallas medianas */
+    }
+
+    .hero-image .image {
+        width: 300px;
+        /* Reducir el tamaño del muñeco en pantallas medianas */
+    }
+
+    .hero-text h1 {
+        font-size: 3.5rem;
+        /* Reducir el tamaño del texto */
+    }
+
+    .hero-text p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 40vh;
+        /* Más pequeña en pantallas pequeñas */
+    }
+
+    .hero-content {
+        flex-direction: column;
+        /* Cambiar a columna en pantallas pequeñas */
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-bottom: 20px;
+    }
+
+    .hero-image .image {
+        width: 200px;
+        /* Imagen del muñeco más pequeña en pantallas pequeñas */
+    }
+
+    .hero-text {
+        text-align: center;
+        /* Centrar el texto */
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 35vh;
+        /* Aún más pequeña en pantallas móviles */
+    }
+
+    .hero-image .image {
+        width: 150px;
+        /* Imagen del muñeco más pequeña en móviles */
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        /* Texto más pequeño en móviles */
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Contenedor de las cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 cards por fila */
+    gap: 20px;
+    /* Espacio entre las cards */
+    padding: 40px;
+    justify-items: center;
+    /* Centra las cards */
+}
+
+/* Estilos para las cards */
+.card {
+    width: 320px;
+    /* Ajusta el ancho de la card */
+    background-color: #0097a7;
+    /* Color de fondo del contenedor */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    overflow: hidden;
+    /* Asegura que la imagen no se salga del contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra alrededor de la card */
+    text-align: center;
+    margin: 20px auto;
+    /* Centra la card en su contenedor */
+}
+
+.card-image {
+    width: 100%;
+    /* La imagen ocupará todo el ancho de la card */
+    height: 200px;
+    /* Altura fija para la imagen */
+    object-fit: cover;
+    /* Asegura que la imagen mantenga sus proporciones */
+    border-bottom: 5px solid #f57c00;
+    /* Borde inferior anaranjado como en el ejemplo */
+}
+
+.card-content {
+    padding: 15px 10px;
+    background-color: #004d56;
+    /* Fondo de la sección de contenido */
+    color: white;
+    /* Texto en blanco */
+}
+
+.card-content h2 {
+    font-size: 1.5rem;
+    /* Tamaño del título */
+    margin: 0;
+}
+
+.card-footer {
+    background-color: #00acc1;
+    /* Color de fondo de la parte inferior */
+    padding: 10px;
+    border-top: none;
+}
+
+.card-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.card-button:hover {
+    color: #f5f5f5;
+    /* Cambia el color del texto al hacer hover */
+}
+
+/* --- Responsive Styles --- */
+/* Para pantallas más pequeñas (tabletas) */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cards por fila en pantallas más pequeñas */
+    }
+}
+
+/* Para pantallas móviles (teléfonos) */
+@media (max-width: 480px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        /* 1 card por fila en pantallas móviles */
+    }
+}

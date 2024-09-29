@@ -1,0 +1,105 @@
+section {
+    background-color: #f5f5f5;
+    /* Fondo gris claro */
+    padding: 40px;
+    /* Añadir un poco de espacio alrededor de la sección */
+    min-height: 100vh;
+    /* Asegura que la sección cubra toda la pantalla */
+}
+
+
+/* Estilos para el contenedor de las cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 cards por fila */
+    gap: 20px;
+    /* Espacio entre las cards */
+    padding: 40px;
+}
+
+/* Estilos para las cards de información */
+.card {
+    background-color: #0097a7;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    /* Limitar el ancho de las cards en pantallas grandes */
+    margin: 0 auto;
+    /* Centra las cards */
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    color: white;
+}
+
+.card-content h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.card-button {
+    background-color: #004d56;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #003840;
+}
+
+/* --- Responsive Styles --- */
+/* Para pantallas más pequeñas (tabletas y móviles) */
+@media (max-width: 1200px) {
+
+    /* En pantallas medianas y más grandes (hasta 1200px), las cards se mantienen centradas y con un tamaño máximo */
+    .card {
+        max-width: 250px;
+        /* Ancho más pequeño en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cards por fila en pantallas medianas */
+    }
+
+    .card {
+        max-width: 100%;
+        /* Permitir que las cards ocupen todo el ancho disponible */
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        /* 1 card por fila en pantallas pequeñas */
+    }
+
+    .card {
+        max-width: 100%;
+        /* Permitir que las cards ocupen todo el ancho disponible */
+    }
+}

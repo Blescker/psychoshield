@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}Informacion{% endblock  %}
+{% block content %}
+<link rel="stylesheet" href="{% static "css/informacion.css" %}">
+<section class="cards-container">
+    <div class="card">
+        <img src="{% static 'images/informacionDepresion.png' %}" alt="Depresión" class="card-image">
+        <div class="card-content">
+            <h2>DEPRESIÓN:</h2>
+            <p>
+                La depresión es un trastorno mental caracterizado fundamentalmente por un bajo estado de ánimo y sentimientos de tristeza, asociados a alteraciones del comportamiento, del grado de actividad y del pensamiento.
+            </p>
+            <button class="card-button">Más Información</button>
+        </div>
+    </div>
+
+    <!-- Copiar y pegar el mismo bloque de card para crear 6 cards en total -->
+    <div class="card">
+        <img src="{% static 'images/informacionBulimia.png' %}" alt="Bulimia" class="card-image">
+        <div class="card-content">
+            <h2>BULIMIA:</h2>
+            <p>
+                Trastorno alimenticio grave caracterizado por atracones, seguidos de métodos para evitar el aumento de peso.
+                La bulimia es un trastorno alimenticio potencialmente mortal.            </p>
+            <button class="card-button">Más Información</button>
+        </div>
+    </div>
+
+    <!-- Agrega las demás cards (6 en total) de la misma manera -->
+    <div class="card">
+        <img src="{% static 'images/informacionAlcoholismo.png' %}" alt="Alcoholismo" class="card-image">
+        <div class="card-content">
+            <h2>ALCOHOLISMO:</h2>
+            <p>
+                Enfermedad crónica caracterizada por la ingesta descontrolada de alcohol y preocupación por el consumo.
+                El alcoholismo es la incapacidad de controlar el consumo de alcohol debido a una dependencia física y emocional.            </p>
+            <button class="card-button">Más Información</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{% static 'images/informacionBulimia.png' %}" alt="Depresión" class="card-image">
+        <div class="card-content">
+            <h2>DEPRESIÓN:</h2>
+            <p>
+                La depresión es un trastorno mental caracterizado fundamentalmente por un bajo estado de ánimo y sentimientos de tristeza, asociados a alteraciones del comportamiento, del grado de actividad y del pensamiento.
+            </p>
+            <button class="card-button">Más Información</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{% static 'images/informacionBulimia.png' %}" alt="Depresión" class="card-image">
+        <div class="card-content">
+            <h2>DEPRESIÓN:</h2>
+            <p>
+                La depresión es un trastorno mental caracterizado fundamentalmente por un bajo estado de ánimo y sentimientos de tristeza, asociados a alteraciones del comportamiento, del grado de actividad y del pensamiento.
+            </p>
+            <button class="card-button">Más Información</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{% static 'images/informacionBulimia.png' %}" alt="Depresión" class="card-image">
+        <div class="card-content">
+            <h2>DEPRESIÓN:</h2>
+            <p>
+                La depresión es un trastorno mental caracterizado fundamentalmente por un bajo estado de ánimo y sentimientos de tristeza, asociados a alteraciones del comportamiento, del grado de actividad y del pensamiento.
+            </p>
+            <button class="card-button">Más Información</button>
+        </div>
+    </div>
+</section>
+
+
+{% endblock  %}

@@ -1,0 +1,113 @@
+/* Importar la fuente Quicksand */
+* {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Asegura que padding y border se incluyan en las dimensiones */
+}
+
+/* Asegurar que el contenido ocupe toda la pantalla */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Evitar scroll horizontal */
+}
+
+/* Estilos del header */
+header {
+    background-color: #0097B2;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.logo img {
+    height: 50px;
+    /* Ajusta el tamaño del logo */
+}
+
+.contact-info {
+    text-align: right;
+}
+
+.contact-info span {
+    display: block;
+}
+
+/* Estilos de la barra de navegación */
+nav {
+    background-color: #FFFFFF;
+    width: 100%;
+    /* Asegurar que ocupe todo el ancho */
+    /* Eliminar el borde inferior */
+    border-bottom: none;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #1D5661;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Estilo para la sección activa y hover (aplica a todo el botón) */
+nav ul li a.active,
+nav ul li a:hover {
+    background-color: #D9D9D9;
+    color: #1D5661;
+}
+
+/* Sección con márgenes */
+section {
+    padding: 40px;
+}
+
+/* --- Responsive Styles --- */
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-info {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li a {
+        text-align: center;
+        padding: 15px;
+        width: 100%;
+    }
+}

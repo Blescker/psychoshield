@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}Inicio{% endblock  %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static "css/inicio.css" %}">
+<div class="container">
+    <div class="overlay">
+        <h1 class="title">PSYCHOSHIELD</h1>
+        <p class="subtitle">Protegiendo la mente, fortaleciendo el futuro</p>
+        <button class="button">Tomar Test</button>
+    </div>
+    <img class="character" src="{% static "images/inicioPersonaje.png" %}" alt="Personaje">
+</div>
+
+
+{% endblock  %}

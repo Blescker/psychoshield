@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static "css/actividades.css" %}">
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-image">
+            <img src="{% static 'images/actividadesGato.png' %}" alt="Muñeco" class="image">
+        </div>
+        <div class="hero-text">
+            <h1>ACTIVIDADES</h1>
+            <p>RESPIRA, CONTROLA Y MEJORA</p>
+        </div>
+    </div>
+</section>
+
+<div class="cards-container">
+    <!-- Card 1 -->
+    <div class="card">
+        <img src="{% static 'images/pEjercicio_1.png' %}" alt="Tutorial 1" class="card-image">
+        <div class="card-content">
+            <h2>Ejercicio</h2>
+        </div>
+        <div class="card-footer">
+            <a href="https://www.youtube.com/watch?v=o0W0-4QW55w" class="card-button" target="_blank">VER MÁS &gt;&gt;&gt;</a>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+        <img src="{% static 'images/pMedita.png' %}" alt="Tutorial 2" class="card-image">
+        <div class="card-content">
+            <h2>Meditar</h2>
+        </div>
+        <div class="card-footer">
+            <a href="https://www.youtube.com/watch?v=SGua7dLfBjw" class="card-button" target="_blank">VER MÁS &gt;&gt;&gt;</a>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+        <img src="{% static 'images/pDibujo.png' %}" alt="Tutorial 3" class="card-image">
+        <div class="card-content">
+            <h2>Arte</h2>
+        </div>
+        <div class="card-footer">
+            <a href="https://www.youtube.com/watch?v=AX3xBvsu7rU" class="card-button" target="_blank">VER MÁS &gt;&gt;&gt;</a>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+        <img src="{% static 'images/pLibr_1.png' %}" alt="Tutorial 4" class="card-image">
+        <div class="card-content">
+            <h2>Salida al aire libre</h2>
+        </div>
+        <div class="card-footer">
+            <a href="https://www.youtube.com/shorts/9IFZtoTyRw0" class="card-button" target="_blank">VER MÁS &gt;&gt;&gt;</a>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+        <img src="{% static 'images/pSocializar_1.png' %}" alt="Tutorial 5" class="card-image">
+        <div class="card-content">
+            <h2>Socializar</h2>
+        </div>
+        <div class="card-footer">
+            <a href="https://www.youtube.com/watch?v=keFew75NHRk" class="card-button" target="_blank">VER MÁS &gt;&gt;&gt;</a>
+        </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+        <img src="{% static 'images/pMusica_1.png' %}" alt="Tutorial 6" class="card-image">
+        <div class="card-content">
+            <h2>Música</h2>
+        </div>
+        <div class="card-footer">
+            <a href="https://www.youtube.com/watch?v=B0vkw5XK-a8" class="card-button" target="_blank">VER MÁS &gt;&gt;&gt;</a>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

@@ -1,0 +1,92 @@
+/* Sección de ayuda */
+.help-section {
+    padding: 40px;
+    background-color: #f5f5f5;
+    /* Fondo gris claro */
+    text-align: center;
+}
+
+.help-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.help-header p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de las cards */
+.help-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas */
+    gap: 20px;
+    /* Espacio entre las cards */
+}
+
+.help-card {
+    background-color: #0097a7;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.help-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.help-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.help-card a {
+    color: white;
+    text-decoration: underline;
+}
+
+.help-card a:hover {
+    color: #ffcc00;
+    /* Cambiar color en hover */
+}
+
+/* Imagen en la parte inferior */
+.help-image {
+    margin-top: 40px;
+    /* Espacio superior */
+    display: flex;
+    justify-content: center;
+    /* Centrar la imagen */
+}
+
+.help-image img {
+    width: 60%;
+    /* Ancho de la imagen reducido */
+    max-width: 600px;
+    /* Limita el tamaño máximo de la imagen */
+    height: auto;
+    border-radius: 10px;
+    /* Bordes redondeados */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .help-container {
+        grid-template-columns: 1fr;
+        /* 1 columna en pantallas pequeñas */
+    }
+
+    .help-card {
+        margin-bottom: 20px;
+    }
+
+    .help-image img {
+        width: 80%;
+        /* La imagen se mantiene responsiva y más pequeña en pantallas pequeñas */
+    }
+}

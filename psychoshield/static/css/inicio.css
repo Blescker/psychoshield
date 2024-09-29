@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/inicioPortada.png');
+    /* Cambia la ruta de acuerdo con tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.overlay {
+    flex: 1;
+    text-align: left;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Fondo oscuro semitransparente para el texto */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 50%;
+    box-sizing: border-box;
+    height: auto;
+    /* Elimina el height fijo */
+}
+
+.title {
+    font-size: 4.5rem;
+    /* Texto del título más grande */
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    /* Asegura que las letras grandes no se solapen */
+}
+
+.subtitle {
+    font-size: 2rem;
+    /* Texto del subtítulo más grande */
+    margin-bottom: 40px;
+}
+
+.button {
+    padding: 20px 40px;
+    /* Tamaño del botón más grande */
+    font-size: 1.5rem;
+    /* Texto del botón más grande */
+    background-color: #2c8e93;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.button:hover {
+    background-color: #256e6e;
+}
+
+.character {
+    flex: 1;
+    max-width: 50%;
+    height: auto;
+    object-fit: contain;
+    /* Mantiene la proporción del personaje */
+}
+
+/* Media Query para pantallas más pequeñas (tabletas) */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse;
+        /* Coloca el personaje encima */
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        /* Ajusta el contenedor para que no sea tan alto */
+        padding: 20px;
+    }
+
+    .overlay {
+        max-width: 90%;
+        /* El texto ahora ocupa más espacio en pantallas pequeñas */
+        text-align: center;
+        padding: 20px;
+        height: auto;
+        /* Elimina el height fijo */
+    }
+
+    .title {
+        font-size: 3.5rem;
+        /* Tamaño más pequeño del título */
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+        /* Tamaño más pequeño del subtítulo */
+    }
+
+    .button {
+        font-size: 1.2rem;
+        /* Tamaño más pequeño del botón */
+        padding: 15px 30px;
+    }
+
+    .character {
+        max-width: 45%;
+        /* Personaje más grande en tabletas */
+        margin-top: 10px;
+        /* Reduce el margen superior */
+        margin-bottom: 10px;
+        /* Reduce el margen inferior */
+    }
+}
+
+/* Media Query para pantallas móviles aún más pequeñas (teléfonos) */
+@media screen and (max-width: 480px) {
+    .container {
+        flex-direction: column-reverse;
+        /* Coloca el personaje encima */
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        /* Ajusta el contenedor para que no sea tan alto */
+        padding: 20px;
+    }
+
+    .overlay {
+        max-width: 100%;
+        /* El texto ocupa todo el ancho */
+        text-align: center;
+        padding: 10px;
+        /* Reduce el padding en móviles */
+        height: auto;
+        /* Elimina el height fijo */
+    }
+
+    .title {
+        font-size: 2.5rem;
+        /* Más pequeño en pantallas móviles */
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        /* Tamaño más pequeño para subtítulos en móviles */
+    }
+
+    .button {
+        font-size: 1rem;
+        /* Botón más pequeño en pantallas móviles */
+        padding: 10px 20px;
+    }
+
+    .character {
+        max-width: 50%;
+        /* Personaje más pequeño en pantallas móviles */
+        margin-top: 10px;
+        /* Reduce el margen superior */
+        margin-bottom: 10px;
+        /* Reduce el margen inferior */
+    }
+}
