@@ -51,17 +51,22 @@ body {
 }
 
 .button {
+
     padding: 20px 40px;
-    /* Tamaño del botón más grande */
     font-size: 1.5rem;
-    /* Texto del botón más grande */
     background-color: #2c8e93;
     color: white;
+    text-decoration: none;
+    /* Eliminar subrayado */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     display: block;
+    text-align: center;
     margin: 0 auto;
+    width: auto;
+    max-width: 300px;
+    /* Controla el ancho en pantallas grandes */
 }
 
 .button:hover {
@@ -109,7 +114,6 @@ body {
 
     .button {
         font-size: 1.2rem;
-        /* Tamaño más pequeño del botón */
         padding: 15px 30px;
     }
 
@@ -157,7 +161,6 @@ body {
 
     .button {
         font-size: 1rem;
-        /* Botón más pequeño en pantallas móviles */
         padding: 10px 20px;
     }
 

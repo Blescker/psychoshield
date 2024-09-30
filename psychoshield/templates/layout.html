@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra de Navegación</title>
     <link rel="stylesheet" href="{% static "css/layout.css" %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/animation.css' %}">
     <title> {% block title %}{% endblock  %}</title>
 </head>
 <body>
@@ -18,12 +18,18 @@
         <div class="logo">
             <img src="{% static "images/logo1.png" %}" alt="Logo de la Aplicación">
         </div>
-        <div class="contact-info">
-            <span>Número de contacto: 123-456-789</span>
-            <span>Instagram: @nombreIG</span>
+        {% if user.is_authenticated %}
+        <div class="user-info">
+            <p>Bienvenido, {{ user.nombre }}!</p>  <!-- Aquí se muestra el nombre del usuario -->
+            <a href="{% url 'logout' %}" class="btn-logout">Cerrar sesión</a>  <!-- Botón de logout con nuevo estilo -->
         </div>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn-login">Iniciar sesión</a>
+        {% endif %}
     </header>
 
+    {% if request.resolver_match.url_name != 'login' and request.resolver_match.url_name != 'register' %}
+    <nav>
     <!-- Barra de navegación -->
     <nav>
         <ul>
@@ -33,6 +39,7 @@
             <li><a href="{% url "numerosAyuda" %}">Números de Ayuda</a></li>
         </ul>
     </nav>
+    {% endif %}
 
     {% block content %}
     

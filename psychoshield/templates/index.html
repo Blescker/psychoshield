@@ -6,11 +6,12 @@
 {% block content %}
 
 <link rel="stylesheet" href="{% static "css/inicio.css" %}">
+<link rel="stylesheet" href="{% static 'css/animation.css' %}">
 <div class="container">
     <div class="overlay">
         <h1 class="title">PSYCHOSHIELD</h1>
         <p class="subtitle">Protegiendo la mente, fortaleciendo el futuro</p>
-        <button class="button">Tomar Test</button>
+        <a href="{% url 'test' %}" class="button">Tomar Test</a>
     </div>
     <img class="character" src="{% static "images/inicioPersonaje.png" %}" alt="Personaje">
 </div>

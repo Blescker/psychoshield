@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "css/login.css" %}">
+<link rel="stylesheet" href="{% static 'css/animation.css' %}">
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    
+    <form method="POST" action="">
+        {% csrf_token %}  <!-- Este token es crucial para las solicitudes POST -->
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </div>
+        <button type="submit" class="btn-login">Iniciar Sesión</button>
+    </form>
+
+    {% if messages %}
+    <div class="error-messages">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="register-container">
+        <p>¿No tienes cuenta?</p>
+        <a href="{% url 'register' %}" class="btn-register">Registrarse</a>
+    </div>
+</div>
+{% endblock %}

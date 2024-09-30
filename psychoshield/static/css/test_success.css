@@ -1,0 +1,35 @@
+/* Contenedor principal de la página de éxito */
+.success-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+}
+
+/* Estilo del título */
+.success-container h2 {
+    color: #2c8e93;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo del párrafo */
+.success-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Contenedor del icono de éxito */
+.success-icon {
+    margin-top: 20px;
+}
+
+.success-icon img {
+    width: 80px;
+    height: 80px;
+}

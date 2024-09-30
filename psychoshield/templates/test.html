@@ -3,6 +3,49 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static "css/test.css" %}">
+<link rel="stylesheet" href="{% static 'css/animation.css' %}">
 
-<h1>TEST</h1>
+<h2>{{ test.nombre_test }}</h2>
+<p>{{ test.descripcion }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <!-- Mostrar los campos adicionales primero -->
+    <div>
+        <label for="id_estado_civil">Estado Civil</label>
+        {{ form.estado_civil }}
+
+        <label for="id_edad">Edad</label>
+        {{ form.edad }}
+
+        <label for="id_sexo">Sexo</label>
+        {{ form.sexo }}
+
+        <label for="id_ocupacion">Ocupación</label>
+        {{ form.ocupacion }}
+
+        <label for="id_educacion">Nivel de Educación</label>
+        {{ form.educacion }}
+
+        <label for="id_psicologo">Seleccione su psicólogo</label>
+        {{ form.psicologo }}
+    </div>
+
+    <!-- Luego mostrar las preguntas del test -->
+    <div>
+        {% for field in form %}
+            <!-- Excluir los campos adicionales que ya se han renderizado -->
+            {% if field.name not in 'estado_civil edad sexo ocupacion educacion psicologo' %}
+                <div>
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <button type="submit" class="button">Enviar respuestas</button>
+</form>
 {% endblock  %}

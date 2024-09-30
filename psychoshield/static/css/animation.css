@@ -1,0 +1,68 @@
+/* Animación de fade-in (aparición suave) */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación de fade-out (desaparición suave) */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Otras animaciones que podrías querer agregar */
+
+/* Animación de deslizamiento desde la izquierda */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideInLeft 1s forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación de deslizamiento hacia la derecha */
+.slide-out-right {
+    animation: slideOutRight 1s forwards;
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}

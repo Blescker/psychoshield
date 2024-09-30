@@ -87,6 +87,36 @@ section {
     padding: 40px;
 }
 
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-info p {
+    margin-right: 20px;
+}
+
+/* Estilo del botón de cerrar sesión */
+.btn-logout {
+    padding: 10px 15px;
+    background-color: #b33a3a;
+    /* Rojo apagado */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo cuando el ratón pasa por encima */
+.btn-logout:hover {
+    background-color: #a22e2e;
+    /* Un rojo un poco más oscuro cuando se hace hover */
+}
+
 /* --- Responsive Styles --- */
 /* Para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {

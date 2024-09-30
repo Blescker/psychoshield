@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/test_success.css' %}">
+<link rel="stylesheet" href="{% static 'css/animation.css' %}">
+<div id="page-content" class="success-container fade-in">
+    <h2>¡Test completado exitosamente!</h2>
+    <p>Serás redirigido a la página de inicio en unos segundos...</p>
+</div>
+
+<!-- Script para redirigir automáticamente al index después de 3 segundos -->
+<script>
+    setTimeout(function(){
+        window.location.href = "{% url 'index' %}";
+    }, 3000); // Redirige después de 3 segundos (3000 ms)
+</script>
+{% endblock %}
