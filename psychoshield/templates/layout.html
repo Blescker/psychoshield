@@ -23,8 +23,6 @@
             <p>Bienvenido, {{ user.nombre }}!</p>  <!-- Aquí se muestra el nombre del usuario -->
             <a href="{% url 'logout' %}" class="btn-logout">Cerrar sesión</a>  <!-- Botón de logout con nuevo estilo -->
         </div>
-        {% else %}
-            <a href="{% url 'login' %}" class="btn-login">Iniciar sesión</a>
         {% endif %}
     </header>
 
