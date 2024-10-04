@@ -13,6 +13,9 @@ from django.http import HttpResponse
 @login_required(login_url='/login/')
 def index(request):
     if request.user.is_authenticated:
+        if request.user.rol == 'psicólogo':
+
+            return redirect('vista_psicologo')
         return render(request, 'index.html')
     else:
         return HttpResponse("Usuario no autenticado")
@@ -105,11 +108,12 @@ def login_view(request):
                     login(request, user)
                     messages.success(request, 'Inicio de sesión exitoso')
 
-                    # Añadir una respuesta temporal aquí para ver si llega a este punto
-                    # Agrega esto como prueba
-
-                    # Si todo está bien, debería redirigir al index
-                    return redirect('index')
+                    # Redirige al psicólogo a su vista personalizada
+                    if user.rol == 'psicólogo':
+                        return redirect('vista_psicologo')
+                    else:
+                        # Redirige al index si es paciente
+                        return redirect('index')
                 else:
                     messages.error(request, 'Credenciales incorrectas.')
             except User.DoesNotExist:
@@ -133,6 +137,45 @@ def register_view(request):
             return redirect('login')
 
     return render(request, 'register.html', {'form': form})
+
+
+@login_required(login_url='/login/')
+def vista_psicologo(request):
+    if request.user.rol == 'psicólogo':
+        # Obtener los resultados de los tests de los pacientes atendidos por el psicólogo actual
+        resultados = TestResult.objects.filter(id_psicologo=request.user)
+
+        return render(request, 'vista_psicologo.html', {'resultados': resultados})
+    else:
+        return HttpResponse("Acceso denegado: Solo los psicólogos pueden acceder a esta vista.")
+
+
+@login_required(login_url='/login/')
+def agregar_sintomatologia(request, resultado_id):
+    # Obtener el resultado del test
+    resultado = TestResult.objects.get(id=resultado_id)
+
+    if request.method == 'POST':
+        # Guardar la sintomatología presentada
+        sintomatologia = request.POST.get('sintomatologia')
+        resultado.sintomatologia_presentada = sintomatologia
+        resultado.save()
+        # Redirige de vuelta a la vista del psicólogo
+        return redirect('vista_psicologo')
+
+    return render(request, 'agregar_sintomatologia.html', {'resultado': resultado})
+
+
+def lista_pacientes(request):
+    return render(request, 'lista_pacientes.html')
+
+
+def resultados_tests(request):
+    return render(request, 'resultados_tests.html')
+
+
+def perfil_psicologo(request):
+    return render(request, 'perfil_psicologo.html')
 
 
 def logout_view(request):

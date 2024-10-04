@@ -28,14 +28,24 @@
 
     {% if request.resolver_match.url_name != 'login' and request.resolver_match.url_name != 'register' %}
     <nav>
-    <!-- Barra de navegación -->
-    <nav>
+        <!-- Condicional: Mostrar nav según el rol del usuario -->
+        {% if user.rol == 'psicólogo' %}
+        <!-- Nav del Psicólogo -->
         <ul>
-            <li><a href="{% url "index" %}" class="active">Inicio</a></li>
-            <li><a href="{% url "information" %}">Información</a></li>
-            <li><a href="{% url "actividades" %}">Actividades</a></li>
-            <li><a href="{% url "numerosAyuda" %}">Números de Ayuda</a></li>
+            <li><a href="{% url 'vista_psicologo' %}">Inicio</a></li>
+            <li><a href="{% url 'lista_pacientes' %}">Pacientes</a></li>
+            <li><a href="{% url 'resultados_tests' %}">Resultados de Tests</a></li>
+            <li><a href="{% url 'perfil_psicologo' %}">Perfil</a></li>
         </ul>
+        {% elif user.rol == 'paciente' %}
+        <!-- Nav del Paciente -->
+        <ul>
+            <li><a href="{% url 'index' %}" class="active">Inicio</a></li>
+            <li><a href="{% url 'information' %}">Información</a></li>
+            <li><a href="{% url 'actividades' %}">Actividades</a></li>
+            <li><a href="{% url 'numerosAyuda' %}">Números de Ayuda</a></li>
+        </ul>
+        {% endif %}
     </nav>
     {% endif %}
 

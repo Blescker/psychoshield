@@ -192,6 +192,8 @@ class TestResult(models.Model):
     fecha_resultado = models.DateTimeField(auto_now_add=True)
     id_psicologo = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={
                                      'rol': 'psicólogo'}, related_name='psicologo_resultado')
+    sintomatologia_presentada = models.TextField(
+        null=True, blank=True)  # Nuevo campo
 
     def __str__(self):
         return f'Resultado {self.id_test} de {self.id_usuario}'

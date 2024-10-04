@@ -1,0 +1,160 @@
+/* Estilos generales */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el título */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007BFF;
+    /* Un azul para los encabezados */
+    color: white;
+    font-size: 16px;
+}
+
+td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Botones generales */
+.btn {
+    padding: 8px 16px;
+    background-color: #28a745;
+    /* Verde para el botón */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    /* Evitar que el texto se divida en varias líneas */
+}
+
+.btn:hover {
+    background-color: #218838;
+    /* Más oscuro al pasar el ratón */
+}
+
+/* Estilo para el cuadro de color según el nivel de riesgo */
+td div {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    border-radius: 50%;
+    /* Para hacer el indicador circular */
+}
+
+/* Estilos responsivos para la tabla y botones */
+@media (max-width: 768px) {
+    table {
+        width: 95%;
+    }
+
+    th,
+    td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    /* Ajustes adicionales para el botón en pantallas pequeñas */
+    .btn {
+        font-size: 12px;
+        /* Reduce el tamaño de la fuente */
+        padding: 6px 10px;
+        /* Reduce el padding del botón */
+        width: auto;
+        /* Deja que el botón se ajuste al tamaño del texto */
+        white-space: nowrap;
+        /* Evita que el botón se divida en varias líneas */
+        display: block;
+        /* Asegura que el botón se vea como un bloque completo */
+        margin: 0 auto;
+        /* Centra el botón dentro de la celda */
+    }
+
+    td {
+        word-wrap: break-word;
+        /* Permite que el contenido de las celdas de la tabla se ajuste */
+    }
+}
+
+/* Estilos para pantallas más pequeñas (<480px) */
+@media (max-width: 480px) {
+    table {
+        width: 100%;
+        /* Asegura que la tabla ocupe todo el ancho de la pantalla */
+    }
+
+    th,
+    td {
+        font-size: 10px;
+        /* Reduce el tamaño de la fuente para pantallas más pequeñas */
+        padding: 6px;
+        /* Menos padding para que todo quepa mejor */
+    }
+
+    h1 {
+        font-size: 18px;
+        /* Ajusta el tamaño del título */
+    }
+
+    /* Estilo específico para botones en pantallas muy pequeñas */
+    .btn {
+        font-size: 10px;
+        /* Reduce aún más el tamaño del botón */
+        padding: 5px 8px;
+        /* Reduce el padding */
+        width: 100%;
+        /* Asegura que el botón ocupe todo el ancho de la celda en pantallas pequeñas */
+        white-space: normal;
+        /* Permite que el texto haga saltos de línea */
+        text-align: center;
+        /* Centra el texto dentro del botón */
+    }
+
+    /* Ajuste para añadir un salto de línea dentro del botón */
+    .btn::after {
+
+        white-space: pre;
+        /* Asegura que el salto de línea se respete */
+    }
+
+    td div {
+        width: 15px;
+        /* Reduce el tamaño del indicador de color */
+        height: 15px;
+        /* Reduce la altura del indicador de color */
+    }
+}

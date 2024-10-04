@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Agregar Sintomatología{% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static "css/añadir_sintomatologia.css" %}">
+<h1>Añadir Sintomatología</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <!-- Etiqueta con el nombre del paciente resaltado -->
+    <label for="sintomatologia">
+        Sintomatología presentada para 
+        <strong style="font-size: 18px;">{{ resultado.id_usuario.nombre }}</strong>:
+    </label>
+
+    <!-- Área de texto con placeholder y sin saltos de línea adicionales -->
+    <textarea id="sintomatologia" name="sintomatologia" rows="5" cols="40" placeholder="Descripción de sintomatología">{{ resultado.sintomatologia_presentada|default_if_none:"" }}</textarea>
+    
+    <br>
+    <button type="submit">Guardar Sintomatología</button>
+</form>
+
+{% endblock %}
