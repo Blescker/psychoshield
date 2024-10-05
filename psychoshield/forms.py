@@ -134,3 +134,16 @@ class TestForm(forms.Form):
                 widget=forms.RadioSelect,
                 required=True
             )
+            
+class EditarPerfilForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['descripcion', 'experiencia']  # Campos que el psicólogo puede editar
+        widgets = {
+            'descripcion': forms.Textarea(attrs={'rows': 4}),
+            'experiencia': forms.TextInput(attrs={'placeholder': 'Ingrese su experiencia'}),
+        }
+        labels = {
+            'descripcion': 'Descripción Personal',
+            'experiencia': 'Experiencia Profesional',
+        }

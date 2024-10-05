@@ -5,6 +5,40 @@
 {% block title %}Vista Psicologo{% endblock  %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static "css/lista_pacientes.css" %}">
+<h1>Buscar Paciente</h1>
 
+<!-- Formulario de búsqueda -->
+<form method="GET" action="{% url 'lista_pacientes' %}">
+    <input type="text" name="q" placeholder="Ingrese el nombre del paciente" value="{{ query }}">
+    <button type="submit">Buscar</button>
+</form>
+
+<!-- Mostrar resultados de la búsqueda -->
+{% if pacientes %}
+    <h2>Resultados:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente.nombre }}</td>
+                <td>{{ paciente.email }}</td>
+                <td>
+                    <a href="{% url 'vista_psicologo_detalle' paciente.id %}">Ver Resultados</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No se encontraron pacientes.</p>
+{% endif %}
 
 {% endblock  %}

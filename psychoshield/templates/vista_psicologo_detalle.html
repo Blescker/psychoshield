@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Detalles del Paciente{% endblock %}
+
+{% block content %}
+<h1>Detalles del Paciente: {{ paciente.nombre }}</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Paciente</th>
+            <th>Test</th>
+            <th>Resultado Total</th>
+            <th>Nivel de Riesgo (Dx)</th>
+            <th>Color de Riesgo</th>
+            <th>Fecha del Resultado</th>
+            <th>Sintomatología</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for resultado in resultados %}
+        <tr>
+            <td>{{ paciente.nombre }}</td>
+            <td>{{ resultado.id_test.nombre_test }}</td>
+            <td>{{ resultado.resultado_total }}</td>
+            <td>{{ resultado.nivel_riesgo }}</td>
+            <td>
+                <div style="width: 20px; height: 20px; background-color:
+                    {% if resultado.nivel_riesgo == 'Mínimo' %}
+                        lightgreen
+                    {% elif resultado.nivel_riesgo == 'Leve' %}
+                        green
+                    {% elif resultado.nivel_riesgo == 'Moderado' %}
+                        orange
+                    {% elif resultado.nivel_riesgo == 'Severo' %}
+                        red
+                    {% endif %}
+                ">
+                </div>
+            </td>
+            <td>{{ resultado.fecha_resultado }}</td>
+            <td>{{ resultado.sintomatologia_presentada }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

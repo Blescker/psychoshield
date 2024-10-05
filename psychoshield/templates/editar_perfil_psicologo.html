@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Editar Perfil{% endblock %}
+{% load static %}   
+{% block content %}
+<link rel="stylesheet" href="{% static "css/editar_perfil_psicologo.css" %}">
+
+<div class="editar-perfil-container">
+    <h1>Editar Perfil</h1>
+
+    <form method="POST" class="editar-perfil-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_descripcion">Descripción Personal</label>
+            {{ form.descripcion }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_experiencia">Experiencia Profesional</label>
+            {{ form.experiencia }}
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn-submit">Guardar Cambios</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

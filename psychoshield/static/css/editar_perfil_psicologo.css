@@ -1,0 +1,83 @@
+/* Contenedor principal del formulario */
+.editar-perfil-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del formulario */
+.editar-perfil-container h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Grupo de formularios */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Etiquetas del formulario */
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Input y textarea del formulario */
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s ease;
+}
+
+/* Efecto al pasar el cursor sobre los campos de entrada */
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border: 1px solid #007BFF;
+    outline: none;
+}
+
+/* Botón de guardar */
+.btn-submit {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover sobre el botón de guardar */
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .editar-perfil-container {
+        padding: 15px;
+    }
+
+    .editar-perfil-container h1 {
+        font-size: 24px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+    }
+}

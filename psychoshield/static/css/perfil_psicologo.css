@@ -1,0 +1,92 @@
+/* Contenedor principal del perfil */
+.perfil-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Cabecera del perfil con la foto y los datos */
+.perfil-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Foto de perfil */
+.foto-perfil img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Datos del perfil */
+.datos-perfil {
+    text-align: left;
+}
+
+.datos-perfil h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.datos-perfil p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Sección de detalles del perfil */
+.perfil-detalles {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.perfil-detalles h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.perfil-detalles p {
+    font-size: 16px;
+    color: #666;
+}
+/* Botón de edición */
+.boton-editar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-editar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-editar:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .perfil-header {
+        flex-direction: column;
+    }
+    
+    .foto-perfil img {
+        width: 120px;
+        height: 120px;
+    }
+}

@@ -34,6 +34,9 @@ class User(AbstractBaseUser):
     contraseña = models.CharField(max_length=128)
     rol = models.CharField(max_length=20, choices=ROLES)
     fecha_registro = models.DateTimeField(auto_now_add=True)
+    # Añadir campos descripción y experiencia
+    descripcion = models.TextField(blank=True, null=True)
+    experiencia = models.CharField(max_length=255, blank=True, null=True)
 
     # Campos adicionales que Django espera
     is_active = models.BooleanField(default=True)

@@ -5,6 +5,35 @@
 {% block title %}Vista Psicologo{% endblock  %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static "css/perfil_psicologo.css" %}">
 
 
+<div class="perfil-container">
+    <div class="perfil-header">
+        <!-- Foto de perfil -->
+        <div class="foto-perfil">
+            <img src="{% static 'images/psicologo.png' %}" alt="Foto de Perfil">
+        </div>
+
+        <!-- Datos importantes del psicólogo -->
+        <div class="datos-perfil">
+            <h1>{{ psicologo.nombre }}</h1>
+            <p><strong>Email:</strong> {{ psicologo.email }}</p>
+            <p><strong>Especialización:</strong> Psicología Clínica</p>
+            <p><strong>Pacientes Atendidos:</strong> {{ num_pacientes_atendidos }}</p>
+        </div>
+    </div>
+
+    <div class="perfil-detalles">
+        <h2>Más información</h2>
+        <p><strong>Fecha de Registro:</strong> {{ psicologo.fecha_registro }}</p>
+        <p><strong>Experiencia:</strong> {{ psicologo.experiencia|default:"No se ha proporcionado información sobre la experiencia." }}</p>
+        <p><strong>Descripción:</strong> {{ psicologo.descripcion|default:"Este psicólogo aún no ha añadido una descripción personal." }}</p>
+    </div>
+
+    <!-- Botón de edición -->
+    <div class="boton-editar">
+        <a href="{% url 'editar_perfil_psicologo' %}" class="btn-editar">Editar Perfil</a>
+    </div>
+</div>
 {% endblock  %}

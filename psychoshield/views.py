@@ -6,6 +6,7 @@ from .forms import TestForm
 from .forms import LoginForm, RegisterForm  # Importa el formulario
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from .forms import EditarPerfilForm
 
 # Create your views here.
 
@@ -140,14 +141,16 @@ def register_view(request):
 
 
 @login_required(login_url='/login/')
-def vista_psicologo(request):
-    if request.user.rol == 'psicólogo':
-        # Obtener los resultados de los tests de los pacientes atendidos por el psicólogo actual
+def vista_psicologo(request, id=None):
+    if id:
+        # Si se selecciona un paciente específico, obtenemos sus resultados
+        paciente = User.objects.get(id=id, rol='paciente')
+        resultados = TestResult.objects.filter(id_usuario=paciente)
+    else:
+        # Obtener los resultados de los pacientes atendidos por el psicólogo
         resultados = TestResult.objects.filter(id_psicologo=request.user)
 
-        return render(request, 'vista_psicologo.html', {'resultados': resultados})
-    else:
-        return HttpResponse("Acceso denegado: Solo los psicólogos pueden acceder a esta vista.")
+    return render(request, 'vista_psicologo.html', {'resultados': resultados})
 
 
 @login_required(login_url='/login/')
@@ -166,16 +169,62 @@ def agregar_sintomatologia(request, resultado_id):
     return render(request, 'agregar_sintomatologia.html', {'resultado': resultado})
 
 
+@login_required(login_url='/login/')
 def lista_pacientes(request):
-    return render(request, 'lista_pacientes.html')
+    query = request.GET.get('q', '')  # Obtener el valor de búsqueda del query
+    pacientes = User.objects.filter(rol='paciente')  # Filtrar solo pacientes
 
+    if query:
+        # Filtrar pacientes por nombre que coincidan con la búsqueda
+        pacientes = pacientes.filter(nombre__icontains=query)
 
+    return render(request, 'lista_pacientes.html', {'pacientes': pacientes, 'query': query})
+
+@login_required(login_url='/login/')
 def resultados_tests(request):
-    return render(request, 'resultados_tests.html')
+    # Obtener todos los resultados de los tests
+    resultados = TestResult.objects.all()
 
+    # Filtrar por nivel de riesgo, si es necesario
+    filtro_riesgo = request.GET.get('riesgo', '')
+    if filtro_riesgo:
+        resultados = resultados.filter(nivel_riesgo=filtro_riesgo)
+
+    # Contar los niveles de riesgo
+    conteo_riesgos = {
+        'Mínimo': TestResult.objects.filter(nivel_riesgo='Mínimo').count(),
+        'Leve': TestResult.objects.filter(nivel_riesgo='Leve').count(),
+        'Moderado': TestResult.objects.filter(nivel_riesgo='Moderado').count(),
+        'Severo': TestResult.objects.filter(nivel_riesgo='Severo').count(),
+    }
+
+    return render(request, 'resultados_tests.html', {
+        'resultados': resultados,
+        'conteo_riesgos': conteo_riesgos,
+        'filtro_riesgo': filtro_riesgo,
+    })
 
 def perfil_psicologo(request):
-    return render(request, 'perfil_psicologo.html')
+    psicologo = request.user
+    num_pacientes_atendidos = TestResult.objects.filter(id_psicologo=psicologo).values('id_usuario').distinct().count()
+
+    return render(request, 'perfil_psicologo.html', {
+        'psicologo': psicologo,
+        'num_pacientes_atendidos': num_pacientes_atendidos
+    })
+
+def editar_perfil_psicologo(request):
+    psicologo = request.user
+
+    if request.method == 'POST':
+        form = EditarPerfilForm(request.POST, instance=psicologo)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil_psicologo')
+    else:
+        form = EditarPerfilForm(instance=psicologo)
+
+    return render(request, 'editar_perfil_psicologo.html', {'form': form})
 
 
 def logout_view(request):
@@ -185,3 +234,13 @@ def logout_view(request):
 
 def test_success(request):
     return render(request, 'test_success.html')
+
+@login_required(login_url='/login/')
+def vista_psicologo_detalle(request, id):
+    # Obtener el paciente específico
+    paciente = User.objects.get(id=id, rol='paciente')
+    
+    # Obtener los resultados de las pruebas del paciente
+    resultados = TestResult.objects.filter(id_usuario=paciente)
+    
+    return render(request, 'vista_psicologo_detalle.html', {'paciente': paciente, 'resultados': resultados})

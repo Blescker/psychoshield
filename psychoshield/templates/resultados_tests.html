@@ -2,9 +2,62 @@
 
 {% load static %}
 
-{% block title %}Vista Psicologo{% endblock  %}
+{% block title %}Resultado Test{% endblock  %}
 
 {% block content %}
+
+<link rel="stylesheet" href="{% static "css/resultados_tests.css" %}">
+
+<h1>Resumen de Resultados de Tests</h1>
+
+<!-- Filtro por nivel de riesgo -->
+<form method="GET" action="{% url 'resultados_tests' %}">
+    <label for="riesgo">Filtrar por Nivel de Riesgo:</label>
+    <select name="riesgo" id="riesgo">
+        <option value="">-- Todos --</option>
+        <option value="Mínimo" {% if filtro_riesgo == 'Mínimo' %}selected{% endif %}>Mínimo</option>
+        <option value="Leve" {% if filtro_riesgo == 'Leve' %}selected{% endif %}>Leve</option>
+        <option value="Moderado" {% if filtro_riesgo == 'Moderado' %}selected{% endif %}>Moderado</option>
+        <option value="Severo" {% if filtro_riesgo == 'Severo' %}selected{% endif %}>Severo</option>
+    </select>
+    <button type="submit">Filtrar</button>
+</form>
+
+<!-- Mostrar estadísticas de los niveles de riesgo -->
+<h2>Estadísticas Globales</h2>
+<ul class="estadisticas-list">
+    <li>Mínimo: {{ conteo_riesgos.Mínimo }}</li>
+    <li>Leve: {{ conteo_riesgos.Leve }}</li>
+    <li>Moderado: {{ conteo_riesgos.Moderado }}</li>
+    <li>Severo: {{ conteo_riesgos.Severo }}</li>
+</ul>
+
+<!-- Tabla de resultados generales -->
+<h2>Lista de Resultados</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Paciente</th>
+            <th>Test</th>
+            <th>Resultado Total</th>
+            <th>Nivel de Riesgo (Dx)</th>
+            <th>Fecha del Resultado</th>
+            <th>Sintomatología</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for resultado in resultados %}
+        <tr>
+            <td>{{ resultado.id_usuario.nombre }}</td>
+            <td>{{ resultado.id_test.nombre_test }}</td>
+            <td>{{ resultado.resultado_total }}</td>
+            <td>{{ resultado.nivel_riesgo }}</td>
+            <td>{{ resultado.fecha_resultado }}</td>
+            <td>{{ resultado.sintomatologia_presentada }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 
 {% endblock  %}

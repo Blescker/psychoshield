@@ -33,5 +33,7 @@ urlpatterns = [
          name='perfil_psicologo'),  # Perfil del psicólogo
     path('psicologo/sintomatologia/<int:resultado_id>/',
          views.agregar_sintomatologia, name='agregar_sintomatologia'),
-
+    path('psicologo/pacientes/', views.lista_pacientes, name='lista_pacientes'),
+    path('psicologo/paciente/<int:id>/', views.vista_psicologo, name='vista_psicologo_detalle'),
+    path('psicologo/perfil/editar/', views.editar_perfil_psicologo, name='editar_perfil_psicologo'),
 ]
